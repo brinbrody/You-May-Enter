@@ -10,6 +10,10 @@ function findCustomer($id){
 //Either move the user to their next position, or create them if they do not exist
 //Use case for known missing users: moveAlong(-1,someNameHere)
 function moveAlong($id, $name=""){
+    if(id==-1){
+        $db->query("INSERT INTO `customers` (`name`,`location`) VALUES ($name,0)");
+        return;
+    }
     $customer = $db->query("SELECT `location` FROM `customers` WHERE `id`=$id")->fetch_object();
     //Customer doesn't exist? No problem; we'll make one and stick them on the queue.
     if($customer == null){
@@ -17,6 +21,14 @@ function moveAlong($id, $name=""){
     }
     //If the user already exists, we can just increase their location by 1
     $db->query("UPDATE `customers` SET `location`=".($customer->location)+1);
+}
+
+function scanQR(){ 
+    //User codes will be passed as GET headers in format id_name
+    //This function wil only run if the user is authenticated already - no security hazard here
+    $contents = $_GET['userCode'];
+    $id = explode($contents,"_")[0];
+    moveAlong($id);
 }
 
 ?>
