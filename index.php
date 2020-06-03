@@ -7,14 +7,13 @@
 
   <title>You May Enter</title>
 
-  <link rel="stylesheet" type="text/css" href="css/phone-page.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
   <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="mainContainer">
-    <div>
-      <div class="mainContainerText">
+    <div class="mainContainerText">
         <h1 class="mainContainerTitle">You May Enter</h1>
         <form action="/action_page.php">
           <br>
@@ -24,7 +23,6 @@
             <input type="submit" value="Get in Line" class="submitButton">
           </div>
         </form>
-      </div>
     </div>
     <div class="staffLogin"><a href="PC_webpages/login.php" >staff login</a></div>
   </div>

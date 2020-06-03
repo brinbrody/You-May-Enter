@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 6vw;
+}
+
+.background {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: #076585; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #076585, #fff); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #076585, #fff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+}
+
+.mainContainer {
+  width: 90vw;
+  height: 90vw;
+  border-radius: 1vw;
+
+  background: snow;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+}
+
+.mainContainerText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  height: 85vw;
+  width: 85vw;
+
+  text-align: center;
+}
+
+.thanksParagraph {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 5.5vw;
+}
+
+.qrCode {
+  width: 40vw;
+  height: 40vw;
+}
+
+.progressBar {
+  position: absolute;
+  width: 90%;
+  height: 2vh;
+  border-radius: 4vw;
+  left: 50%;
+  transform: translate(-50%, 0%);
+
+  background-color: #076585;
+}
+
+.progressBar::before {
+  content: '';
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0.5vh;
+  top: 0.5vh;
+  bottom: 0.5vh;
+  border-radius: 4vh;
+  width: 100%;
+  min-width: 0;
+  max-width: calc(100% - 1vh);
+  background-color: white;
+}
+
+.positionInLine {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 5.5vw;
+}
+
+.getOffTheLine {
+  background-color: rgb(252,95,95); 
+  border: none;
+  color: white;
+  padding: 2vw 2vw;
+  text-align: center;
+  font-size: 4vw;
+  font-family: 'Oxygen', sans-serif;
+  border-radius: 0.5vw;
+
+  transform: translate(0%, 25%);
+}
