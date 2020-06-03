@@ -1,3 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 6vw;
+  }
+
 .background {
     position: relative;
     height: 100%;
@@ -6,3 +16,69 @@
     background: -webkit-linear-gradient(to top, #076585, #fff); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to top, #076585, #fff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
 }
+
+.mainContainer {
+    width: 90vw;
+    height: 90vw;
+    border-radius: 1vw;
+  
+    background: snow;
+  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+  }
+  
+  .mainContainerTitle {
+    text-align: center;
+    font-size: 10vw;
+  }
+  
+  .mainContainerText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -35%); /* change this lol*/
+  
+    height: 70vw;
+    width: 70vw;
+  }
+  
+  .submitButton {
+    background-color: #076585; 
+    border: none;
+    color: white;
+    padding: 2vw 2vw;
+    text-align: center;
+    font-size: 6vw;
+    font-family: 'Oxygen', sans-serif;
+    border-radius: 0.5vw;
+  }
+  
+  .submitButton:hover {
+    background-color: rgba(255, 200, 200, 0.5); 
+  }
+  
+  .sizeIcon {
+    height: 15vw;
+    width: 15vw;
+  }
+  
+  .inputs {
+    width: 70%;
+    height: 15vw;
+    transform: translate(0%, -28%);
+    
+    font-family: 'Oxygen', sans-serif;
+    font-size: 7vw;
+  
+    padding: 0px 2vw;
+    text-align: center;
+  }
+  
+  .centerText {
+    text-align: center;
+  }
