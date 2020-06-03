@@ -7,7 +7,7 @@
 
   <title>You May Enter</title>
 
-  <link rel="stylesheet" type="text/css" href="css/phone-page.css">
+  <link rel="stylesheet" type="text/css" href="../css/landing-page.css">
   <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
 </head>
 
@@ -18,10 +18,13 @@
         <h1 class="mainContainerTitle">You May Enter</h1>
         <form action="/action_page.php">
           <br>
-          <img src="icons/person-circle.svg" class="sizeIcon">
-          <input type="text" id="username" name="username" class="inputs" placeholder="Your Name"><br>
+          <img src="../icons/person-circle.svg" class="sizeIcon">
+          <input type="text" id="username" name="username" class="inputs" placeholder="Username"><br>
+          <img src="../icons/lock.svg" class="sizeIcon">
+          <input type="password" id="password" name="pwd" class="inputs" placeholder="Password"><br>
           <div class="centerText">
-            <input type="submit" value="Get in Line" class="submitButton">
+            <input type="submit" value="Log In" class="signInButton">
+            <input type="submit" value="Register" class="registerButton">
           </div>
         </form>
       </div>

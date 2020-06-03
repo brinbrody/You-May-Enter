@@ -30,14 +30,14 @@
     transform: translate(-50%, -50%);
 
     text-align: center;
-  }
+}
   
-  .mainContainerTitle {
+.mainContainerTitle {
     text-align: center;
     font-size: 10vw;
-  }
+}
   
-  .mainContainerText {
+.mainContainerText {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -45,9 +45,11 @@
   
     height: 90vw;
     width: 90vw;
-  }
+
+    text-align: center;
+}
   
-  .submitButton {
+.submitButton {
     background-color: #076585; 
     border: none;
     color: white;
@@ -56,18 +58,18 @@
     font-size: 6vw;
     font-family: 'Oxygen', sans-serif;
     border-radius: 0.5vw;
-  }
+}
   
-  .submitButton:hover {
+.submitButton:hover {
     background-color: rgba(255, 200, 200, 0.5); 
-  }
+}
   
-  .sizeIcon {
+.sizeIcon {
     height: 15vw;
     width: 15vw;
-  }
+}
   
-  .inputs {
+.inputs {
     width: 60%;
     height: 15vw;
     transform: translate(0%, -28%);
@@ -77,8 +79,13 @@
   
     padding: 0px 2vw;
     text-align: center;
-  }
+}
   
-  .centerText {
+.centerText {
     text-align: center;
-  }
+}
+
+.staffLogin {
+    position: relative;
+    top: 93%;
+}
