@@ -41,10 +41,10 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -35%); /* change this lol*/
+    transform: translate(-50%, -28%); /* change this lol*/
   
-    height: 70vw;
-    width: 70vw;
+    height: 90vw;
+    width: 90vw;
   }
   
   .submitButton {
@@ -68,7 +68,7 @@
   }
   
   .inputs {
-    width: 70%;
+    width: 60%;
     height: 15vw;
     transform: translate(0%, -28%);
     
