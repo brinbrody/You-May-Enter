@@ -5,7 +5,6 @@
 
 h1 {
   font-family: 'Oxygen', sans-serif;
-  font-size: 5.5vh;
 }
 
 .background {
@@ -32,17 +31,15 @@ h1 {
 }
 
 .mainContainerTitle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -300%); /* change this dfgjsedijfg sdjgdosf */
+  text-align: center;
+  font-size: 4vw;
 }
 
 .mainContainerText {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* change this lol*/
+  transform: translate(-50%, -80%); /* change this lol*/
 
   height: 25vh;
   width: 55vh;
@@ -54,7 +51,7 @@ h1 {
   color: white;
   padding: 0.5vh 0.5vh;
   text-align: center;
-  font-size: 3.25vh;
+  font-size: 4vh;
   font-family: 'Oxygen', sans-serif;
   border-radius: 0.5vh;
 }
@@ -69,7 +66,7 @@ h1 {
   color: white;
   padding: 0.5vh 0.5vh;
   text-align: center;
-  font-size: 3.25vh;
+  font-size: 4vh;
   font-family: 'Oxygen', sans-serif;
   border-radius: 0.5vh;
 }

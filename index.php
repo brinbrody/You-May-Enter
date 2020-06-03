@@ -14,14 +14,14 @@
 <body>
   <div class="mainContainer">
     <div>
-      <h1 class="mainContainerTitle">You May Enter</h1>
       <div class="mainContainerText">
+        <h1 class="mainContainerTitle">You May Enter</h1>
         <form action="/action_page.php">
-          <br><br>
+          <br>
           <img src="icons/person-circle.svg" class="sizeIcon">
           <input type="text" id="username" name="username" class="inputs" placeholder="Username"><br>
           <img src="icons/lock.svg" class="sizeIcon">
-          <input type="password" id="password" name="pwd" class="inputs" placeholder="Password"><br><br>
+          <input type="password" id="password" name="pwd" class="inputs" placeholder="Password"><br>
           <div class="centerText">
             <input type="submit" value="Log In" class="signInButton">
             <input type="submit" value="Register" class="registerButton">
