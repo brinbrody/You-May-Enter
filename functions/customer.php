@@ -1,10 +1,11 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT']."/You-May-Enter/include/db.php";
-
+session_start();
 //Check if a userCode was passed AND that a worker is logged in
 if(isset($_GET['userCode'])){
     if(isset($_SESSION['userId'])){
         scanQR();
+        echo '<script>window.close();</script>';
     }else{
         header("Location: ../");
     }
