@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" class="background">
-
+<?php 
+//If they had a username set (in a previous iteration of the page), we can work with it to add them to the queue
+if(isset($_POST['username'])){
+  require_once('include/db.php');
+  require_once('functions/customer.php');
+  moveAlong(-1,$_POST['username']);
+  $_SESSION['id'] = $db->insert_id;
+  header("Location: Phone_webpages/waiting_page");
+}
+?>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,7 +24,7 @@
   <div class="mainContainer">
     <div class="mainContainerText">
         <h1 class="mainContainerTitle">You May Enter</h1>
-        <form action="/action_page.php">
+        <form action="" method="POST">
           <br>
           <img src="icons/person-circle.svg" class="sizeIcon">
           <input type="text" id="username" name="username" class="inputs" placeholder="Your Name"><br>
@@ -24,7 +33,7 @@
           </div>
         </form>
     </div>
-    <div class="staffLogin"><a href="PC_webpages/login.php" >staff login</a></div>
+    <div class="staffLogin"><a href="PC_webpages/login" >Staff Login</a></div>
   </div>
 </body>
 

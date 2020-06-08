@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" class="background">
 
+<?php
+  require_once('../include/db.php');
+  require_once('../functions/customer.php');
+  include('../vendor/phpqrcode/phpqrcode.php');
+  if(isset($_SESSION['id'])){
+    $id=$_SESSION['id'];
+  }
+  $location = findCustomer($id);
+  $lineNumber = mysql_fetch_assoc($db->query("SELECT COUNT(`id`) AS numUsers FROM `customers` WHERE `id`<$id AND `location`=0"))['numUsers'];
+  $name = getCustomer()['name'];
+?>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <meta http-equiv="refresh" content="30">
   <title>You May Enter</title>
 
   <link rel="stylesheet" type="text/css" href="../css/waiting_page.css">
@@ -14,11 +26,27 @@
 <body>
   <div class="mainContainer">
     <div class="mainContainerText">
-      <div class="thanksParagraph">Hello __________. Once it is your turn, please show this QR code at the door.</div>
-      <img src="../img/1200px-QR_code_for_mobile_English_Wikipedia.svg.webp" class="qrCode">
+      <div class="thanksParagraph">Hello <?php echo $name; ?>. 
+      <?php 
+      switch($location){
+        case -1:
+          header("Location: ../index");
+          break;
+        case 0:
+          echo 'Once it is your turn, please show this QR code at the door.';
+          break;
+        case 1:
+          echo "You're in the store! When you're ready to leave, show this QR code at the door.";
+          break;
+        default:
+          header("Location: ../index");
+      }
+      ?>
+       </div>
+      <?php QRcode::png('http://brinbrody.com/You-May-Enter/functions/customer.php?userCode='.$id.'_'.$name); ?>
       <!-- <div class="progressBar"></div> -->
-      <br><div class="positionInLine">Position in Line: __</div><br> <!-- if implementing progress bar, take out the br at end of the div and place before the div -->
-      <button type="button" class="getOffTheLine">Get off the Line</button>
+      <?php if($location==0){ ?><br><div class="positionInLine">Position in Line: <?php echo $lineNumber; ?></div><br> <!-- if implementing progress bar, take out the br at end of the div and place before the div --> <?php } ?>
+      <!--<button type="button" class="getOffTheLine">Get off the Line</button>-->
     </div>
   </div>
 </body>

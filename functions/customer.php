@@ -1,6 +1,14 @@
 <?php
 require_once "../include/db.php";
 
+if(isset($_GET['userCode'])){
+    scanQR();
+}
+
+function getCustomer($id){
+    return mysql_fetch_assoc($db->query("SELECT * FROM `customers` WHERE `id`=$id"));
+}
+
 //Return 0 when customer is in queue, and 1 when customer is in store, -1 if customer not found.
 function findCustomer($id){
     $customer = $db->query("SELECT `location` FROM `customers` WHERE `id`=$id")->fetch_object();
@@ -29,6 +37,7 @@ function scanQR(){
     $contents = $_GET['userCode'];
     $id = explode($contents,"_")[0];
     moveAlong($id);
+    header("Location: ../Phone_webpages/waiting_page");
 }
 
 ?>
