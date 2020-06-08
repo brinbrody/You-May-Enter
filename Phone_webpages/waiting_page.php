@@ -5,7 +5,6 @@
   session_start();
   require_once('../include/db.php');
   require_once('../functions/customer.php');
-  include('../vendor/phpqrcode/qrlib.php');
   if(isset($_SESSION['id'])){
     $id=$_SESSION['id'];
     $location = findCustomer($id);
@@ -47,10 +46,7 @@
       }
       ?>
        </div>
-      <?php 
-      //'http://brinbrody.com/You-May-Enter/functions/customer.php?userCode='.$id.'-'.$name
-        $code = QRcode::png('test code');
-      ?>
+      <?php echo '<img src="../functions/qr.php?id='.$id.'&name='.$name.'"/>'?>
       <!-- <div class="progressBar"></div> -->
       <?php if($location==0){ ?><br><div class="positionInLine">Position in Line: <?php echo $lineNumber; ?></div><br> <!-- if implementing progress bar, take out the br at end of the div and place before the div --> <?php } ?>
       <!--<button type="button" class="getOffTheLine">Get off the Line</button>-->
