@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="background">
 <?php 
+session_start();
 //If they had a username set (in a previous iteration of the page), we can work with it to add them to the queue
 if(isset($_POST['username'])){
   require_once('include/db.php');

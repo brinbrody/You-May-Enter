@@ -2,6 +2,7 @@
 <html lang="en" class="background">
 
 <?php
+  session_start();
   require_once('../include/db.php');
   require_once('../functions/customer.php');
   include('../vendor/phpqrcode/phpqrcode.php');
