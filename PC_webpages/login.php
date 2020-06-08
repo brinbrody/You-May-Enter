@@ -4,8 +4,8 @@
 if(isset($_POST['username']) && isset($_POST['pwd'])){
   session_start();
   require_once('../include/db.php');
-  $user = mysqli_fetch_assoc($db->query('SELECT * FROM `users` WHERE `username`='.$_POST['username']));
-  die($user['password']."::".md5($_POST['pwd']));
+  $username = $_POST['username'];
+  $user = mysqli_fetch_assoc($db->query("SELECT * FROM `users` WHERE `username`='$username'"));
   if(md5($_POST['pwd'])==$user['password']){
     $_SESSION['userId']=$user['id'];
     header("Location: ../");
@@ -44,7 +44,6 @@ if(isset($_POST['username']) && isset($_POST['pwd'])){
           ?>
           <div class="centerText">
             <input type="submit" value="Log In" class="signInButton">
-            <input type="submit" value="Register" class="registerButton">
           </div>
         </form>
       </div>
