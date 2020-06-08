@@ -5,7 +5,7 @@ if(isset($_POST['username']) && isset($_POST['pwd'])){
   session_start();
   require_once('../include/db.php');
   $user = mysqli_fetch_assoc($db->query('SELECT * FROM `users` WHERE `username`='.$_POST['username']));
-  if(md5($_POST['pwd'])==$user[password]){
+  if(md5($_POST['pwd'])==$user['password']){
     $_SESSION['userId']=$user['id'];
     header("Location: ../");
   }else{
@@ -38,7 +38,7 @@ if(isset($_POST['username']) && isset($_POST['pwd'])){
           <img src="../icons/lock.svg" class="sizeIcon">
           <input type="password" id="password" name="pwd" class="inputs" placeholder="Password"><br>
           <?php if(isset($_POST['loginFail'])){
-            echo '<p>Login failed!</p>';
+            echo '<p>Login failed!</p><br>';
           }
           ?>
           <div class="centerText">
