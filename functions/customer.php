@@ -7,7 +7,7 @@ if(isset($_GET['userCode'])){
 
 function getCustomer($id){
     global $db;
-    return mysql_fetch_assoc($db->query("SELECT * FROM `customers` WHERE `id`=$id"));
+    return mysqli_fetch_assoc($db->query("SELECT * FROM `customers` WHERE `id`=$id"));
 }
 
 //Return 0 when customer is in queue, and 1 when customer is in store, -1 if customer not found.
