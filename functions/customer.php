@@ -25,21 +25,20 @@ function moveAlong($id, $name=""){
         $db->query("INSERT INTO `customers` (`name`,`location`) VALUES ('$name',0)");
         return;
     }
-    $customer = $db->query("SELECT `location` FROM `customers` WHERE `id`=$id")->fetch_object();
+    $customer = mysqli_fetch_assoc($db->query("SELECT * FROM `customers` WHERE `id`=".$id));
     //Customer doesn't exist? No problem; we'll make one and stick them on the queue.
     if($customer == null){
         $db->query("INSERT INTO `customers` (`name`,`location`) VALUES ('$name',0)");
+        return;
     }
     //If the user already exists, we can just increase their location by 1
-    $db->query("UPDATE `customers` SET `location`=".(($customer->location)+1));
+    $db->query("UPDATE `customers` SET `location`=".(($customer['location'])+1)."WHERE `id`=".$id);
 }
 
 function scanQR(){ 
     //User codes will be passed as GET headers in format id_name
     //This function wil only run if the user is authenticated already - no security hazard here
-    $contents = $_GET['userCode'];
-    $id = explode($contents,"_")[0];
-    moveAlong($id);
+    moveAlong($_GET['userCode']);
     header("Location: ../Phone_webpages/waiting_page");
 }
 
