@@ -33,7 +33,8 @@
       <?php 
       switch($location){
         case -1:
-          header("Location: ../index");
+          moveAlong(-1,$name);
+          header("refresh: 0");
           break;
         case 0:
           echo 'Once it is your turn, please show this QR code at the door.';
