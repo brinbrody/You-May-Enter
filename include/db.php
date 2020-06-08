@@ -5,11 +5,11 @@ $host = "localhost"; //Can be changed if needed... will need to test the connect
 $dbname = "You-May-Enter";
 
 // Create connection
-$db = new mysqli($host, $username, $password, $dbname);
+$db = new mysqli($host, $user, $pass, $dbname);
 
 // Check connection, die w/ error if failed.
 if ($db->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+  die("Connection failed: " . $db->connect_error);
 }
 
 ?>
