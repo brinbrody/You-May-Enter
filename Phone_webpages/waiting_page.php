@@ -9,10 +9,10 @@
   if(isset($_SESSION['id'])){
     $id=$_SESSION['id'];
     $location = findCustomer($id);
-    $lineNumber = mysql_fetch_assoc($db->query("SELECT COUNT(`id`) AS numUsers FROM `customers` WHERE `id`<$id AND `location`=0"))['numUsers'];
+    $lineNumber = mysqli_fetch_assoc($db->query("SELECT COUNT(`id`) AS numUsers FROM `customers` WHERE `id`<$id AND `location`=0"))['numUsers'];
     $name = getCustomer($id)['name'];
   }else{
-    header("Location: ../index");
+    header("Location: ../");
   }
 ?>
 
