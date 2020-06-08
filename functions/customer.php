@@ -23,7 +23,6 @@ function moveAlong($id, $name=""){
     global $db;
     if($id==-1){
         $db->query("INSERT INTO `customers` (`name`,`location`) VALUES ('$name',0)");
-        die(mysqli_error($db));
         return;
     }
     $customer = $db->query("SELECT `location` FROM `customers` WHERE `id`=$id")->fetch_object();
