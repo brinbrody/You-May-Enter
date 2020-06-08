@@ -8,6 +8,9 @@ if(isset($_POST['username']) && isset($_POST['pwd'])){
   if(md5($_POST['pwd'])==$user[password]){
     $_SESSION['userId']=$user['id'];
     header("Location: ../");
+  }else{
+    $_POST['loginFail']=true;
+    header("refresh:0");
   }
 }
 ?>
@@ -32,6 +35,10 @@ if(isset($_POST['username']) && isset($_POST['pwd'])){
           <input type="text" id="username" name="username" class="inputs" placeholder="Username"><br>
           <img src="../icons/lock.svg" class="sizeIcon">
           <input type="password" id="password" name="pwd" class="inputs" placeholder="Password"><br>
+          <?php if(isset($_POST['loginFail'])){
+            echo '<p>Login failed!</p>';
+          }
+          ?>
           <div class="centerText">
             <input type="submit" value="Log In" class="signInButton">
             <input type="submit" value="Register" class="registerButton">
