@@ -22,17 +22,17 @@ function findCustomer($id){
 function moveAlong($id, $name=""){
     global $db;
     if($id==-1){
-        $db->query("INSERT INTO `customers` (`name`,`location`) VALUES (".$name.",0)");
+        $db->query("INSERT INTO `customers` (`name`,`location`) VALUES ('$name',0)");
         die(mysqli_error($db));
         return;
     }
     $customer = $db->query("SELECT `location` FROM `customers` WHERE `id`=$id")->fetch_object();
     //Customer doesn't exist? No problem; we'll make one and stick them on the queue.
     if($customer == null){
-        $db->query("INSERT INTO `customers` (`name`,`location`) VALUES (".$name.",0)");
+        $db->query("INSERT INTO `customers` (`name`,`location`) VALUES ('$name',0)");
     }
     //If the user already exists, we can just increase their location by 1
-    $db->query("UPDATE `customers` SET `location`=".($customer->location)+1);
+    $db->query("UPDATE `customers` SET `location`=".(($customer->location)+1));
 }
 
 function scanQR(){ 
