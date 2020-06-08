@@ -1,16 +1,18 @@
 <?php
-require_once "../include/db.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/You-May-Enter/include/db.php";
 
 if(isset($_GET['userCode'])){
     scanQR();
 }
 
 function getCustomer($id){
+    global $db;
     return mysql_fetch_assoc($db->query("SELECT * FROM `customers` WHERE `id`=$id"));
 }
 
 //Return 0 when customer is in queue, and 1 when customer is in store, -1 if customer not found.
 function findCustomer($id){
+    global $db;
     $customer = $db->query("SELECT `location` FROM `customers` WHERE `id`=$id")->fetch_object();
     return ($customer==null ? -1 : $customer->location);
 }
@@ -18,7 +20,8 @@ function findCustomer($id){
 //Either move the user to their next position, or create them if they do not exist
 //Use case for known missing users: moveAlong(-1,someNameHere)
 function moveAlong($id, $name=""){
-    if(id==-1){
+    global $db;
+    if($id==-1){
         $db->query("INSERT INTO `customers` (`name`,`location`) VALUES ($name,0)");
         return;
     }
