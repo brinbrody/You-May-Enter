@@ -10,7 +10,7 @@ function getCustomer($id){
     return mysqli_fetch_assoc($db->query("SELECT * FROM `customers` WHERE `id`=$id"));
 }
 
-//Return 0 when customer is in queue, and 1 when customer is in store, -1 if customer not found.
+//Return 0 when customer is in queue, and 1 when customer is in store, -1 if customer not found, 2 if they've left the store
 function findCustomer($id){
     global $db;
     $customer = $db->query("SELECT `location` FROM `customers` WHERE `id`=$id")->fetch_object();
@@ -31,8 +31,17 @@ function moveAlong($id, $name=""){
         $db->query("INSERT INTO `customers` (`name`,`location`) VALUES ('$name',0)");
         return;
     }
-    //If the user already exists, we can just increase their location by 1
-    $db->query("UPDATE `customers` SET `location`=".(($customer['location'])+1)."WHERE `id`=".$id);
+    $loc= $customer['location'];
+    switch($loc){
+        case "0":
+            $db->query("UPDATE `customers` SET `location`=1 WHERE `id`=".$id);
+            break;
+        case "1":
+            $db->query("UPDATE `customers` SET `location`=2 WHERE `id`=".$id);
+            break;
+        default:
+            $db->query("UPDATE `customers` SET `location`=-1 WHERE `id`=".$id);
+    }
 }
 
 function scanQR(){ 

@@ -41,6 +41,9 @@
         case 1:
           echo "You're in the store! When you're ready to leave, show this QR code at the door.";
           break;
+        case 2:
+          unset($_SESSION['id']);
+          header("Location: ../index");
         default:
           header("Location: ../index");
       }
