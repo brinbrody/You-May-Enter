@@ -46,7 +46,7 @@
       }
       ?>
        </div>
-      <?php echo '<img src="../functions/qr.php?id='.$id.'&name='.$name.'"/>'?>
+      <?php echo '<img src="../functions/qr.php?id='.$id.'&name='.$name.'" style="width:50%"/>'?>
       <!-- <div class="progressBar"></div> -->
       <?php if($location==0){ ?><br><div class="positionInLine">Position in Line: <?php echo $lineNumber; ?></div><br> <!-- if implementing progress bar, take out the br at end of the div and place before the div --> <?php } ?>
       <!--<button type="button" class="getOffTheLine">Get off the Line</button>-->
