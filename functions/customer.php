@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once $_SERVER['DOCUMENT_ROOT']."/You-May-Enter/include/db.php";
 
 if(isset($_GET['userCode'])){
