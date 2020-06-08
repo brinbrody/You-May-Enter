@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" class="background">
-
+<?php
+if(isset($_POST['username']) && isset($_POST['pwd'])){
+  session_start();
+  require_once('../include/db.php');
+  $user = mysqli_fetch_assoc($db->query('SELECT * FROM `users` WHERE `username`='.$_POST['username']));
+  if(md5($_POST['pwd'])==$user[password]){
+    $_SESSION['userId']=$user['id'];
+    header("Location: ../");
+  }
+}
+?>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,7 +26,7 @@
     <div>
       <div class="mainContainerText">
         <h1 class="mainContainerTitle">You May Enter</h1>
-        <form action="/action_page.php">
+        <form action="" method="POST">
           <br>
           <img src="../icons/person-circle.svg" class="sizeIcon">
           <input type="text" id="username" name="username" class="inputs" placeholder="Username"><br>
