@@ -5,7 +5,7 @@
   session_start();
   require_once('../include/db.php');
   require_once('../functions/customer.php');
-  include('../vendor/phpqrcode/phpqrcode.php');
+  include('../vendor/phpqrcode/qrlib.php');
   if(isset($_SESSION['id'])){
     $id=$_SESSION['id'];
     $location = findCustomer($id);
