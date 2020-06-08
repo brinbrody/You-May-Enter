@@ -12,7 +12,7 @@ if(isset($_POST['username']) && isset($_POST['pwd'])){
     unset($_POST['username']);
     unset($_POST['pwd']);
     $_POST['loginFail']=true;
-    header("refresh:0");
+    header("Location: .");
   }
 }
 ?>
