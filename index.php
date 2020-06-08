@@ -10,6 +10,9 @@ if(isset($_POST['username'])){
   $_SESSION['id'] = $db->insert_id;
   header("Location: Phone_webpages/waiting_page");
 }
+if($isset($_SESSION['id'])){
+  header("Location: Phone_webpages/waiting_page");
+}
 ?>
 <head>
   <meta charset="utf-8">
